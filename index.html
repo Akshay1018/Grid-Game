@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="bannerintro">
+        <div class="introcontent">
+            <h1>GRID GAME</h1>
+            <div class="introbox">
+                <p style="font-size:30px">Welcome to the Grid Game!</p>
+                <p></p>Here you try your luck!</p>
+                <p> Grid game has three level. <br />Every level has one jackpot and certain number of bombs.</p>
+                <p>With every level, number of bombs increase.</p>
+                <p>You must dodge all the bombs and find the jackpot to win! <br />Let's see how many tries it takes
+                    you?</p>
+                <form onsubmit="entryGame(event,'easy'); return;">
+                    <label id="enter_name">Your Name: </label>
+                    <input type="text" name="name" id="enterNameId" required /> <br />
+                    <input type="submit" id="skipButton" value="Play Now" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- <audio id="backMusic" loop src="bcMusic.mp3"></audio>-->
+    <audio id="keyPressAudio" src="./press.wav"></audio>
+    <audio id="gameOverAudio" src="./weHaveLosers.mp3"></audio>
+    <audio id="bgMusic" loop src="./bgMusic.mp3"></audio>
+    <audio id="jackpotSound" src="./Jackpot.mp3"></audio>
+
+    <div>
+        <div class="boardRight">
+            <div id="playerName"></div>
+        </div>
+        <div class="board">
+            <div class="boardLeft">
+                <div id="title"></div>
+            </div>
+
+            <div id="scoreBoard">
+                <span>Tries</span>
+                <span id="totalTries"> 0 </span>
+            </div>
+        </div>
+
+        <table id="myTable"></table>
+        <div class="btnrow">
+            <button id="easyBtn" onclick="entryGame(event,'easy');">Easy</button>
+            <button id="mediumBtn" onclick="entryGame(event,'medium');">Medium</button>
+            <button id="hardBtn" onclick="entryGame(event,'hard');">Hard</button>
+        </div>
+        <div class="leaderboard-row">
+            <a href="#LeaderBoard" id="leaderLink" onclick="leaderBoard2()">LeaderBoard</a>
+        </div>
+    </div>
+    <div id="gameOver">
+        <h1>Game Over</h1>
+        <label id="gameOverScore">You could not find a JackPot! Try Again!</label> <br />
+        <button id="tryAgainBtn" onclick="entryGame(event,'easy');">Try Again</button>
+    </div>
+
+    <div id="leaderboard-popup">
+        <h1>LeaderBoard Top 3 Players</h1>
+        <table id="leaderBoard2">
+            <tr>
+                <th>Name</th>
+                <th>Attempts</th>
+            </tr>
+            <tr>
+                <td id="oneName2"></td>
+                <td id="oneScore2"></td>
+            </tr>
+            <tr>
+                <td id="twoName2"></td>
+                <td id="twoScore2"></td>
+            </tr>
+            <tr>
+                <td id="threeName2"></td>
+                <td id="threeScore2"></td>
+            </tr>
+        </table>
+        <div><button id="closeLeaderBd"
+                onclick="document.getElementById('leaderboard-popup').style.display='none'">Close</button></div>
+    </div>
+    <div id="jackpot">
+        <h1>You Hit a Jackpot in </h1>
+        <h3><span id="score2"></span> attempts.</h3>
+        <button onclick="entryGame(event,'easy');">Play Again</button>
+        <h3>LeaderBoard</h3>
+        <table id="leaderBoard">
+            <tr>
+                <th>Name</th>
+                <th>Attempts</th>
+            </tr>
+            <tr>
+                <td id="oneName"></td>
+                <td id="oneScore"></td>
+            </tr>
+            <tr>
+                <td id="twoName"></td>
+                <td id="twoScore"></td>
+            </tr>
+            <tr>
+                <td id="threeName"></td>
+                <td id="threeScore"></td>
+            </tr>
+        </table>
+    </div>
+    <script src="script.js" type="text/javascript"></script>
+</body>
+
+</html>
